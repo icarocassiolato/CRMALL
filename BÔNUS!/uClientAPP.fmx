@@ -1,0 +1,122 @@
+object frmTesteCRMALL: TfrmTesteCRMALL
+  Left = 0
+  Top = 0
+  Caption = 'Teste CRMALL - '#205'caro Cassiolato'
+  ClientHeight = 480
+  ClientWidth = 640
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  DesignerMasterStyle = 0
+  object edtHost: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 1
+    Text = 'http://localhost:49306/api/cliente'
+    Position.X = 16.000000000000000000
+    Position.Y = 16.000000000000000000
+    Size.Width = 193.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+  end
+  object btnListarTodos: TButton
+    Position.X = 16.000000000000000000
+    Position.Y = 48.000000000000000000
+    TabOrder = 2
+    Text = 'Listar Todos'
+    OnClick = btnListarTodosClick
+  end
+  object sgGrid: TStringGrid
+    Anchors = [akLeft, akTop, akRight, akBottom]
+    CanFocus = True
+    ClipChildren = True
+    Position.X = 8.000000000000000000
+    Position.Y = 88.000000000000000000
+    Size.Width = 625.000000000000000000
+    Size.Height = 385.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 7
+    RowCount = 0
+    Viewport.Width = 621.000000000000000000
+    Viewport.Height = 360.000000000000000000
+  end
+  object btnDeletar: TButton
+    Position.X = 104.000000000000000000
+    Position.Y = 48.000000000000000000
+    TabOrder = 11
+    Text = 'Deletar'
+    OnClick = btnDeletarClick
+  end
+  object edtPesquisa: TEdit
+    Touch.InteractiveGestures = [LongTap, DoubleTap]
+    TabOrder = 0
+    Position.X = 309.000000000000000000
+    Position.Y = 16.000000000000000000
+    Size.Width = 44.000000000000000000
+    Size.Height = 22.000000000000000000
+    Size.PlatformDefault = False
+    TextPrompt = '1'
+    OnExit = edtPesquisaExit
+  end
+  object lblPesquisa: TLabel
+    Position.X = 216.000000000000000000
+    Position.Y = 16.000000000000000000
+    Size.Width = 98.000000000000000000
+    Size.Height = 17.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Pesquisa por ID:'
+    TabOrder = 19
+  end
+  object RESTClient: TRESTClient
+    Params = <>
+    Left = 120
+    Top = 376
+  end
+  object RESTRequest: TRESTRequest
+    Client = RESTClient
+    Params = <>
+    Response = RESTResponse
+    SynchronizedEvents = False
+    Left = 160
+    Top = 376
+  end
+  object RESTResponse: TRESTResponse
+    Left = 216
+    Top = 376
+  end
+  object BindingsList: TBindingsList
+    Methods = <>
+    OutputConverters = <>
+    Left = 372
+    Top = 381
+    object LinkGridToDataSourceBindSourceDB1: TLinkGridToDataSource
+      Category = 'Quick Bindings'
+      DataSource = BindSourceDB
+      GridControl = sgGrid
+      Columns = <>
+    end
+  end
+  object FDMemTable: TFDMemTable
+    FetchOptions.AssignedValues = [evMode]
+    FetchOptions.Mode = fmAll
+    ResourceOptions.AssignedValues = [rvSilentMode]
+    ResourceOptions.SilentMode = True
+    UpdateOptions.AssignedValues = [uvCheckRequired, uvAutoCommitUpdates]
+    UpdateOptions.CheckRequired = False
+    UpdateOptions.AutoCommitUpdates = True
+    Left = 264
+    Top = 376
+  end
+  object BindSourceDB: TBindSourceDB
+    DataSet = FDMemTable
+    ScopeMappings = <>
+    Left = 520
+    Top = 384
+  end
+  object RESTResponseDataSetAdapter: TRESTResponseDataSetAdapter
+    Dataset = FDMemTable
+    FieldDefs = <>
+    ResponseJSON = RESTResponse
+    Left = 440
+    Top = 384
+  end
+end
