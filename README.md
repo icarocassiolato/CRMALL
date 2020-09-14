@@ -23,6 +23,6 @@ porém, isso obrigaria que esses campos fossem preenchidos em todas as requisiç
 
 # 3. BÔNUS!
 3.1. Dentro da pasta BONUS! Encontra-se um projeto desenvolvido em Delphi (Firemonkey) que faz a comunicação com a API criada.
-O projeto pode ser compilado para de forma nativa para Windows 32, Windows 64, Linux, Android e iOS
+O projeto pode ser compilado para de forma nativa para Windows (x86), Windows (x64), Linux, Android e iOS
 
 Tecnologias utilizadas: C#.NET, NodeJS, AngularJS, Delphi (Firemonkey)
